@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-do</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="input.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="header" id="header">
+        <p class="header__title">TaskFlow</p>
+
+        <p id="containerInformation"></p>
+
+        <div class="header__img-container">
+          <img
+            src="./add_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+            class="header__img"
+            alt=""
+            id="openDialog"
+          />
+          <dialog id="myDialog" closedby="any" class="dialog">
+            <form method="post" class="form" id="form">
+              <label for="name" class="form__label">
+                <input
+                  type="text"
+                  class="form__input"
+                  name="name"
+                  id="name"
+                  placeholder="Title"
+                  required
+                />
+              </label>
+              <label for="description" class="form__label">
+                <input
+                  type="text"
+                  class="form__input"
+                  name="description"
+                  id="description"
+                  placeholder="Description"
+                  required
+                />
+              </label>
+              <button type="submit" class="form__button" id="closeModal">
+                Add task
+              </button>
+            </form>
+          </dialog>
+        </div>
+      </header>
+      <main class="main">
+        <ul class="main__list-task" id="mainList"></ul>
+        <p class="main__status">There are no tasks to display.</p>
+      </main>
+    </div>
+    <script src="./Task.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>

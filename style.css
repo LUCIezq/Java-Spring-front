@@ -1,0 +1,329 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=National+Park:wght@200..800&family=Quicksand:wght@300..700&display=swap');
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Quicksand;
+    font-weight: 600;
+}
+
+/* Aplica a todo el scroll */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  /* La "pista" del scroll (fondo) */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  /* El "dedo" que se arrastra */
+  ::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Al pasar el mouse */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
+
+body {
+    min-height: 100dvh;
+    display: grid;
+    background-color: rgba(134, 150, 194, 0.219);
+    place-items: center;
+    width: 100%;
+}
+
+.container {
+    background-color: rgb(255, 255, 255);
+    padding: 3rem;
+    width: min(900px, 100%);
+    border-radius: 10px;
+    max-height: 750px;
+    overflow-y: scroll;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: .5rem;
+    padding: 1rem 2rem;
+}
+
+.header__img-container {
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    transition: .3s ease-in-out;
+    background-color: white;
+    cursor: pointer;
+}
+
+.header__title {
+    background-color: rgb(0, 0, 0);
+    padding: .3rem .5rem;
+    border-radius: 5px;
+    font-size: .9rem;
+    color: white;
+}
+
+.header__img-container:hover {
+    transform: rotate(90deg);
+}
+
+.main {
+    min-height: 300px;
+    height: 100%;
+}
+
+.main__status {
+    font-size: .9rem;
+    color: rgba(0, 0, 0, 0.322);
+    text-align: center;
+}
+
+.dialog {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    width: min(450px, 100%);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form__input {
+    padding: .5rem;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.068);
+    width: 100%;
+    outline: none;
+}
+
+.form__button {
+    padding: .7rem;
+    place-self: center;
+    border-radius: 10px;
+    border: none;
+    width: min(100px, 100%);
+    background-color: rgb(50, 105, 33);
+    color: white;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.219);
+}
+
+.main__list-task {
+    padding: 1rem;
+    display: grid;
+    padding: 2rem;
+    gap: 1rem;
+    padding-top: 3rem;
+}
+
+.task__container {
+    background-color: rgb(255, 255, 255);
+    padding: .7rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    justify-content: space-between;
+    border: 1px solid rgba(0, 0, 0, 0.13);
+    transition: .3s ease;
+}
+
+.task__container:hover{
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.103);
+}
+
+.task__input {
+    border: none;
+    background-color: white;
+    outline: none;
+    width: min(500px,100%);
+    transition: .2s ease-out;
+    border-radius: 100px;
+    padding: .2rem;
+}
+
+.task__title {
+    font-size: 1.2rem;
+}
+
+.task__description {
+    font-size: .85rem;
+    color: #0000003f;
+    display: flex;
+}
+
+.task__container-img {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    position: absolute;
+    background-color: white;
+    padding: .5rem;
+    border-radius: 10px;
+    right: -20px;
+    top: -73px;
+    border: 1px solid rgba(0, 0, 0, 0.075);
+    min-width: 100px;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 10;
+
+}
+.task__container-img span{
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+.visible__modal{
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.active {
+    border: 1px solid rgba(0, 0, 0, 0.074);
+    background-color: rgba(0, 0, 0, 0.062);
+    min-height: 40px;
+    padding: .2rem .5rem;
+}
+
+.task__detail {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+    width: 100%;
+
+}
+
+.task__button {
+    border: none;
+    display: grid;
+    padding: .2rem;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.form__update {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: 100%;
+}
+
+.form__update button {
+    border: none;
+    align-self: flex-start;
+    padding: .7rem .5rem;
+    border-radius: .5rem;
+    margin-top: .5rem;
+    transition: .4s ease;
+}
+
+.form__update-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.active__button {
+    cursor: pointer;
+}
+
+.active__button:hover {
+    background-color: black;
+    color: white;
+}
+
+.task__left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.task__left input{
+    border-radius: 10px;
+}
+
+.completed {
+    text-decoration: overline;
+}
+
+.visible{
+    display: block;
+}
+
+#containerInformation{
+    padding: .4rem;
+    border-radius: 10px;
+}
+
+.completed{
+    text-decoration: line-through;
+    color: #0000002f;
+}
+
+.button__options{
+    border: none;
+    background-color: transparent;
+    align-self: flex-start;
+}
+.task__delete,.task__edit{
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    padding: .2rem .6rem    ;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.task__delete:hover,
+.task__edit:hover{
+    background-color: rgba(0, 0, 0, 0.055);
+}
+
+
+.task__delete span{
+    color: red;
+    font-size: .95rem;
+}
+.button__options{
+    cursor: pointer;
+}
+.button__options{
+    display: grid;
+    padding: .15rem;
+    border-radius: 7px;
+    transition: .3s ease;
+}
+.button__options:hover{
+    background-color: rgba(0, 0, 0, 0.089);
+}
